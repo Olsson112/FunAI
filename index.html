@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.3.1/dist/ml5.min.js"></script>
+   
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: grey
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 2em
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-left: 10%;
+            padding-right: 10%;
+            position: relative;
+            margin-bottom: 2em;
+        }
+
+        .image {
+            width: 100%;
+            object-fit: contain;
+            max-height: 50em;
+        }
+
+        .absoluteOverlay {
+            position: absolute;
+            width: 10em;
+            height: 5em;
+            background-color: transparent;
+            border: solid lightgray 1px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px
+        }
+
+        .feedbackContainer  {
+            height: 3em;
+        }
+
+        #loader {
+            display: none;
+            height: 5em;
+            width: auto;
+            object-fit: contain
+        }
+
+        input {
+            opacity: 0;
+            width: 10em;
+            height: 5em;
+        }
+
+        #result {
+            margin: 0;
+            text-align: center
+        }   
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <div class="absoluteOverlay">
+                <h3>Upload Image</h3>
+            </div>
+            <input id='file-input' type="file" title=" " value=" " accept="image/*"  />
+        </div class="item">
+        <div class="item feedbackContainer">
+            <h2 id="result"></h2>
+            <img id="loader" src="./loader.gif" alt="">
+        </div>
+        <div id="imageContainer">
+
+        </div>
+    </div>
+    
+    <script src="./handler.js"></script>
+</body>
+</html>
